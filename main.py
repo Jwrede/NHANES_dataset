@@ -15,16 +15,18 @@ def change_DMDMARTL_label():
 
 change_DMDMARTL_label()
 
-print("Frequency Table for the marital status:")
-print(data.DMDMARTL.value_counts(), "\n")
-print("Frequency Table for the marital status, males only:")
-print(data[data["RIAGENDR"] == 1].DMDMARTL.value_counts(), "\n")
-print("Frequency Table for the marital status, females only:")
-print(data[data["RIAGENDR"] == 2].DMDMARTL.value_counts(), "\n")
+def frequencyTables():
+    print("Frequency Table for the marital status:")
+    print(data.DMDMARTL.value_counts(), "\n")
+    print("Frequency Table for the marital status, males only:")
+    print(data[data["RIAGENDR"] == 1].DMDMARTL.value_counts(), "\n")
+    print("Frequency Table for the marital status, females only:")
+    print(data[data["RIAGENDR"] == 2].DMDMARTL.value_counts(), "\n")
+    
+    print("Frequency Table for the marital status, 30 - 40 y.o.:")
+    print(data[data["RIDAGEYR"].isin(range(30,40))].DMDMARTL.value_counts(), "\n")
+    print("Frequency Table for the marital status, males only, 30 - 40 y.o.:")
+    print(data[data["RIDAGEYR"].isin(range(30,40)) & (data["RIAGENDR"] == 1)].DMDMARTL.value_counts(), "\n")
+    print("Frequency Table for the marital status, females only, 30 - 40 y.o.:")
+    print(data[data["RIDAGEYR"].isin(range(30,40)) & (data["RIAGENDR"] == 2)].DMDMARTL.value_counts(), "\n")
 
-print("Frequency Table for the marital status, 30 - 40 y.o.:")
-print(data[data["RIDAGEYR"].isin(range(30,40))].DMDMARTL.value_counts(), "\n")
-print("Frequency Table for the marital status, males only, 30 - 40 y.o.:")
-print(data[data["RIDAGEYR"].isin(range(30,40)) & data["RIAGENDR"] == 1].DMDMARTL.value_counts(), "\n")
-print("Frequency Table for the marital status, females only, 30 - 40 y.o.:")
-print(data[data["RIDAGEYR"].isin(range(30,40)) & data["RIAGENDR"] == 2].DMDMARTL.value_counts(), "\n")
