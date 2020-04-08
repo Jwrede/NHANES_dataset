@@ -76,6 +76,12 @@ def binned_frequency_tables(gender):
     return _
 
 def plot_height_historgrams():
+    '''
+    _________________________________________________________________________________________________
+    
+    plots how different sizes of bins change the histogram of the height of the subjects
+    _________________________________________________________________________________________________
+    '''
     data["BMXHT"].dropna(inplace = True)
     
     bins = np.arange(10,50,10)
